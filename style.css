@@ -1,3 +1,11 @@
+/* Reset some default spacing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
 body {
     font-family: Arial, Helvetica, sans-serif;
     background-color: #f4f4f4;
@@ -5,6 +13,7 @@ body {
     line-height: 1.6;
 }
 
+/* Main Layout Containers */
 .header,
 .content,
 .footer {
@@ -14,9 +23,22 @@ body {
     padding: 20px;
 }
 
+/* ================= HEADER SECTION ================= */
+
 .header {
-    text-align: center;
     border-bottom: 2px solid #000;
+}
+
+/* Flex layout for text left & image right */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Left side text */
+.header-text {
+    flex: 1;
 }
 
 .header h1 {
@@ -34,6 +56,21 @@ body {
     margin-top: 8px;
 }
 
+/* Right side image */
+.header-image {
+    margin-left: 20px;
+}
+
+.profile-photo {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;   /* Remove this line if you want square photo */
+    object-fit: cover;
+    border: 2px solid #000;
+}
+
+/* ================= CONTENT SECTION ================= */
+
 .content section {
     margin-top: 20px;
 }
@@ -46,7 +83,8 @@ h2 {
     margin-bottom: 8px;
 }
 
-p, li {
+p,
+li {
     font-size: 14px;
 }
 
@@ -54,8 +92,25 @@ ul {
     margin-left: 20px;
 }
 
+/* ================= FOOTER ================= */
+
 .footer {
     text-align: center;
     font-size: 12px;
     color: #555;
 }
+
+/* ================= RESPONSIVE DESIGN ================= */
+
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+
+    .header-image {
+        margin-left: 0;
+        margin-bottom: 15px;
+    }
+}
+
